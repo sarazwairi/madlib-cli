@@ -17,8 +17,6 @@ def read_template(path):
     except FileNotFoundError:
         raise FileNotFoundError('no file found')
     
-    
-
 
 import re
 def parse_template(text):
@@ -33,5 +31,10 @@ def merge(text,words):
     return (re.sub(r'{[^}]*}','{}',text)).format(*words)
 
 
+def output(text,replaced_word):
+    userinput=[]
+    for i in replaced_word:
+        userinput.append(input(f"enter {i}"))
+    return merge(text,userinput)
 
 
